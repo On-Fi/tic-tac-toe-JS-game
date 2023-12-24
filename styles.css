@@ -38,8 +38,3 @@ h1 {
 .cell:hover {
     background-color: rgba(83, 83, 83, 0.353);
 }
-
-/* Add this rule to highlight winning cells */
-.winning-cell {
-    background-color: #ffeb3b; /* Change to your desired color */
-}
