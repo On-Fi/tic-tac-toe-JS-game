@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     const cells = document.querySelectorAll('.cell');
+    const restartButton = document.getElementById('restart-button');
     let currentPlayer = 'X';
     let winner = null;
 
     cells.forEach(cell => {
         cell.addEventListener('click', () => makeMove(cell));
     });
+
+    restartButton.addEventListener('click', restartGame);
 
     function makeMove(cell) {
         if (!cell.textContent && !winner) {
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert(`Player ${winner} wins!`);
             } else if (checkTie()) {
                 alert('It\'s a tie!');
+                restartGame();
             } else {
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             }
@@ -41,5 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function checkTie() {
         return Array.from(cells).every(cell => cell.textContent !== '');
+    }
+
+    function restartGame() {
+        cells.forEach(cell => {
+            cell.textContent = '';
+        });
+        currentPlayer = 'X';
+        winner = null;
     }
 });
