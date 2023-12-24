@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 0px;
     width: 300px; /* Adjust the width as needed */
     margin: auto; /* Center the grid */
 }
